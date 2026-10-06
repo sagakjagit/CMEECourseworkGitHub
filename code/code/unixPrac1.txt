@@ -11,9 +11,20 @@ line count, as their final lines are not newline terminated.
 #2
 tail -n +2 ../data/fasta/e_coli.fasta
 
-tail -n
-Header is excluded the result only includes DNA sequence.
-The first line is the fasta header not part of DNA sequence, so we start on line 2.
+The tail -n +2 command prints the file from line 2 until the end. The first 
+line is the fasta header ">" which is not part of DNA sequence, so we start 
+from line 2. 
+
+#3
+tail -n +2 ../data/fasta/e_coli.fasta | tr -d '\n' | wc -c 
+
+tail -n +2 excludes the header as it prints from line 2 onwards. tr -d deletes 
+characters, in this case \n which are newline characters. wc -c counts the
+number of bytes. Each DNA symbol is 1 byte, therefore it counts the number of DNA 
+symbols in e_coli fasta file. 
+
+
+
 
 
 
