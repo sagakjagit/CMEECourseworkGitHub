@@ -1,10 +1,19 @@
-#####1
+#1
 wc -l ../data/fasta/*.fasta 
-# Wildcard "*" matches all files ending in .fasta.
-# wc -l counts newline characters not visual lines or sequence positions, and total.
-# The result gives newline characters count for each fasta file.
-# Count is 1 lower in numbered files than displayed line count as their final lines do not end in newline characters.
 
+Wildcard * matches all files ending in .fasta. The wc -l command counts 
+newline characters, not visual lines or sequence positions, and gives total 
+count for all files. The result gives the newline characters count for each 
+fasta file. Two numbered files have 1 count lower than their displayed 
+line count, as their final lines are not newline terminated.
+
+
+#2
+tail -n +2 ../data/fasta/e_coli.fasta
+
+tail -n
+Header is excluded the result only includes DNA sequence.
+The first line is the fasta header not part of DNA sequence, so we start on line 2.
 
 
 
