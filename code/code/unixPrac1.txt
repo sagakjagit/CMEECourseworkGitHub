@@ -1,0 +1,11 @@
+#####1
+wc -l ../data/fasta/*.fasta 
+# Wildcard "*" matches all files ending in .fasta.
+# wc -l counts newline characters not visual lines or sequence positions, and total.
+# The result gives newline characters count for each fasta file.
+# Count is 1 lower in numbered files than displayed line count as their final lines do not end in newline characters.
+
+
+
+
+
