@@ -8,7 +8,17 @@
 
 if [[ $# -ne 1 ]]; then
     printf 'Usage: %s <tab-delimited-file>\n' "$0" >&2
+    exit 1
+fi
+
+if [[ ! -f "$1" ]]; then
+    printf 'Error not a file: %s\n' "$1" >&2
     exit 2
+fi
+
+if [[ ! -r "$1" ]]; then
+    printf 'Error cannot read file: %s\n' "$1" >&2
+    exit 3
 fi
 
 echo "Creating a comma delimited version of $1 ..."
