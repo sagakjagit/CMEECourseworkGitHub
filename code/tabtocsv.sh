@@ -21,10 +21,13 @@ if [[ ! -r "$1" ]]; then
     exit 3
 fi
 
+output_file="../results/$(basename "$1").csv"
+mkdir -p ../results
+
 echo "Creating a comma delimited version of $1 ..."
 
-cat "$1" | tr "\t" "," > "$1.csv"
+cat "$1" | tr "\t" "," > "$output_file"
 
 echo "Done!"
 
-exit 
+exit 0
