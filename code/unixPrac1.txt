@@ -33,4 +33,5 @@ tail -n +2 ../data/fasta/e_coli.fasta | tr -d '\n' | grep -o 'ATGC' | wc -l
 
 
 #5 
+echo "$(tail -n +2 ../data/fasta/e_coli.fasta | tr -d '\n' | grep -o '[AT]' | wc -l) / $(tail -n +2 ../data/fasta/e_coli.fasta | tr -d '\n' | grep -o '[CG]' | wc -l)" | bc -l
 
