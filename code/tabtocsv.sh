@@ -6,11 +6,14 @@
 # Arguments: 1-> tab delimited file
 # Date: Oct 2026
 
-if 
+if [[ $# -ne 1 ]]; then
+    printf 'Usage: %s <tab-delimited-file>\n' "$0" >&2
+    exit 2
+fi
 
 echo "Creating a comma delimited version of $1 ..."
 
-cat $1 | tr "\t" "," > $1.csv
+cat "$1" | tr "\t" "," > "$1.csv"
 
 echo "Done!"
 
