@@ -1,34 +1,36 @@
-#1
+# 1
 wc -l ../data/fasta/*.fasta 
 
-Wildcard * matches all files ending in .fasta. The wc -l command counts 
-newline characters, not visual lines or sequence positions, and gives total 
-count for all files. The result gives the newline characters count for each 
-fasta file. Two numbered files have 1 count lower than their displayed 
-line count, as their final lines are not newline terminated.
+# Wildcard * matches all files ending in .fasta. The wc -l command counts 
+# newline characters, not visual lines or sequence positions, and gives total 
+# count for all files. The result gives the newline characters count for each 
+# fasta file. Two numbered files have 1 count lower than their displayed 
+# line count, as their final lines are not newline terminated.
 
 
 #2
 tail -n +2 ../data/fasta/e_coli.fasta
 
-The tail -n +2 command prints the file from line 2 until the end. The first 
-line is the fasta header ">" which is not part of DNA sequence, so we start 
-from line 2. 
+# The tail -n +2 command prints the file from line 2 until the end. The first 
+# line is the fasta header ">" which is not part of DNA sequence, so we start 
+# from line 2. 
 
 
 #3
 tail -n +2 ../data/fasta/e_coli.fasta | tr -d '\n' | wc -c 
 
-tail -n +2 excludes the header as it prints from line 2 onwards. tr -d deletes 
-characters, in this case \n which are newline characters. wc -c counts the
-number of bytes. Each DNA symbol is 1 byte, therefore it counts the number of DNA 
-symbols in e_coli fasta file. 
+# tail -n +2 excludes the header as it prints from line 2 onwards. tr -d deletes 
+# characters, in this case \n which are newline characters. wc -c counts the
+# number of bytes. Each DNA symbol is 1 byte, therefore it counts the number of DNA 
+# symbols in e_coli fasta file. 
 
 
 #4
 tail -n +2 ../data/fasta/e_coli.fasta | tr -d '\n' | grep -o 'ATGC' | wc -l
 
-The command grep -o finds the occurence of 'ATGC' and prints the matches in separate 
-lines, and wc -l counts the number of separate lines. 
+# The command grep -o finds the occurence of 'ATGC' and prints the matches in separate 
+# lines, and wc -l counts those matches on the separate lines.
 
+
+#5 
 
