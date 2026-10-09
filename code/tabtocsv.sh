@@ -30,4 +30,4 @@ cat "$1" | tr "\t" "," > "$output_file"
 
 echo "Done!"
 
-exit 0
+exit 0 
