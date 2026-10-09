@@ -3,7 +3,7 @@
 # Script: csvtospace.sh
 # Desc: substitute the commas in the files with spaces
 #       saves the output into a .txt file
-# Arguments: 1-> tab delimited file
+# Arguments: 1-> space delimited file
 # Date: Oct 2026
 
 if [[ $# -ne 1 ]]; then
@@ -21,10 +21,10 @@ if [[ ! -r "$1" ]]; then
     exit 3
 fi
 
-output_file="../results/$(basename "$1").txt"
+output_file="../results/<input-filename>.txt).txt"
 mkdir -p ../results
 
-echo "Creating a comma delimited version of $1 ..."
+echo "Creating a space delimited version of $1 ..."
 
 cat "$1" | tr "," " " > "$output_file"
 
