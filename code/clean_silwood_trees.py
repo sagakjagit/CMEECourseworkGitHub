@@ -52,18 +52,39 @@ def validate_record(
         rejection_reasons.append("duplicate record_id")
 
 
-    location= 
-    RECORDS id  row (record_id) dictionary str str, in row directory
-       
+
+    CANONICAL_LOCATIONS = ["Silwood Bottom", "Nash's Field", "Manor House", "Reactor Wood"]
+    location = row["location"].strip()
+    if location == "":
+        rejection_reasons.append("missing location")
+    elif location.lower() not in [name.lower() for name in CANONICAL_LOCATIONS]:
+        rejection_reasons.append("invalid location")
+    else:
+        for name in CANONICAL_LOCATIONS:
+            if name.lower() == location.lower():
+                location = name
+            
+    CANONICAL_GENUS = ["Quercus", "Acer", "Betula", "Fagus", "Fraxinus"]
+    genus = row["genus"].strip()
+    if genus == "":
+        rejection_reasons.append("missing genus")
+    elif genus.lower() not in [name.lower() for name in CANONICAL_GENUS]:
+        rejection_reasons.append("invalid genus")
+    else:
+        for name in CANONICAL_GENUS:
+            if name.lower() == genus.lower():
+                genus = name
+
+
+    CANONICAL_SPECIES = ["robur", "petraea", "pseudoplatanus", "pendula", "sylvatica", "excelsior"]
+
+
+
+
     
     raise NotImplementedError("Complete the record validation")
 
 
-
-
-
-
-** after all validations then put them all in accepted id
 
 
 
