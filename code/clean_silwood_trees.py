@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import math
 from pathlib import Path
 from typing import Iterable
 
@@ -93,7 +94,6 @@ def validate_record(
             if name.lower() == species.lower():
                 species = name 
 
-
     if genus in CANONICAL_GENERA and species in CANONICAL_SPECIES:
         if (genus, species) not in PERMITTED_PAIRS:
             rejection_reasons.append("invalid genus/species combination")
@@ -109,7 +109,7 @@ def validate_record(
         else:
             if not math.isfinite(distance_value):
                 rejection_reasons.append("invalid distance_m")
-            if not 0 < distance_value <= 100:
+            elif not 0 < distance_value <= 100:
                 rejection_reasons.append("distance_m out of range")
     
     angle_degrees = row["angle_degrees"].strip()
@@ -126,26 +126,75 @@ def validate_record(
             elif not 0 < angle_value < 90:
                 rejection_reasons.append("angle_degrees out of range")
 
+    if rejection_reasons:
+        return None, rejection_reasons
 
-
-    
-    raise NotImplementedError("Complete the record validation")
-
-
-
-
-
+    clean_values = {
+        "record_id": record_id,
+        "location": location,
+        "genus": genus,
+        "species": species,
+        "distance_m": distance_m,
+        "angle_degrees": angle_degrees,
+    }
+    return clean_values, rejection_reasons
 
 def process_records(
     rows: Iterable[dict[str, str]],
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     """Separate accepted records from rejected-row reports."""
-    raise NotImplementedError("Complete the record-processing workflow")
+
+    clean_records = [] #good rows in clean_values
+    issues = [] #bad rows in rejection_reasons
+    accepted_ids = set() #record_id for clean_records
+    source_row = 1
+
+    for row in rows:
+        source_row = source_row + 1 #start after header
+
+
+
+
+
+    else:
+        clean_records.append(clean_values) #add clean values to new clean_records
+        accepted_ids.append(clean_values["record_id"]) #record_id for clean_values 
+
+
+
+
+
+#create issues
+
+#separate the rows
+
+
+
+
+
+   
+    
+    
+    #raise NotImplementedError("Complete the record-processing workflow")
+
+#acceoted id record_id of clean values
+
+
+
+
+
+
+
 
 
 def summarise_oaks(clean_records: Iterable[dict[str, str]]) -> list[dict[str, str]]:
     """Count accepted oak records by species."""
-    raise NotImplementedError("Complete the oak summary")
+    #raise NotImplementedError("Complete the oak summary")
+
+
+
+
+
 
 
 def write_csv(
