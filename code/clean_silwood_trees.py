@@ -23,6 +23,18 @@ INPUT_FIELDS = [
 ISSUE_FIELDS = ["source_row", "record_id", "reasons"]
 OAK_COUNT_FIELDS = ["species", "count"]
 
+#ADD CONSTANTS HERE TOP OF CODE
+CANONICAL_LOCATIONS = ["Silwood Bottom", "Nash's Field", "Manor House", "Reactor Wood"]
+CANONICAL_GENERA = ["Quercus", "Acer", "Betula", "Fagus", "Fraxinus"]
+CANONICAL_SPECIES = ["robur", "petraea", "pseudoplatanus", "pendula", "sylvatica", "excelsior"]
+PERMITTED_PAIRS = {
+    ("Quercus", "robur"),
+    ("Quercus", "petraea"),
+    ("Acer", "pseudoplatanus"),
+    ("Betula", "pendula"),
+    ("Fagus", "sylvatica"),
+    ("Fraxinus", "excelsior"),
+}
 
 def load_records(path: Path = INPUT_PATH) -> list[dict[str, str]]:
     """Load survey records and check that the published columns are present."""
@@ -51,9 +63,6 @@ def validate_record(
     elif record_id in accepted_ids:
         rejection_reasons.append("duplicate record_id")
 
-
-
-    CANONICAL_LOCATIONS = ["Silwood Bottom", "Nash's Field", "Manor House", "Reactor Wood"]
     location = row["location"].strip()
     if location == "":
         rejection_reasons.append("missing location")
@@ -64,20 +73,58 @@ def validate_record(
             if name.lower() == location.lower():
                 location = name
             
-    CANONICAL_GENUS = ["Quercus", "Acer", "Betula", "Fagus", "Fraxinus"]
     genus = row["genus"].strip()
     if genus == "":
         rejection_reasons.append("missing genus")
-    elif genus.lower() not in [name.lower() for name in CANONICAL_GENUS]:
+    elif genus.lower() not in [name.lower() for name in CANONICAL_GENERA]:
         rejection_reasons.append("invalid genus")
     else:
-        for name in CANONICAL_GENUS:
+        for name in CANONICAL_GENERA:
             if name.lower() == genus.lower():
                 genus = name
 
+    species = row["species"].strip()
+    if species == "":
+        rejection_reasons.append("missing species")
+    elif species.lower() not in [name.lower() for name in CANONICAL_SPECIES]:
+        rejection_reasons.append("invalid species")
+    else:
+        for name in CANONICAL_SPECIES:
+            if name.lower() == species.lower():
+                species = name 
 
-    CANONICAL_SPECIES = ["robur", "petraea", "pseudoplatanus", "pendula", "sylvatica", "excelsior"]
 
+    if genus in CANONICAL_GENERA and species in CANONICAL_SPECIES:
+        if (genus, species) not in PERMITTED_PAIRS:
+            rejection_reasons.append("invalid genus/species combination")
+
+    distance_m = row["distance_m"].strip()
+    if distance_m == "":
+        rejection_reasons.append("missing distance_m")
+    else:
+        try:
+            distance_value = float(distance_m)
+        except:
+            rejection_reasons.append("invalid distance_m") 
+        else:
+            if not math.isfinite(distance_value):
+                rejection_reasons.append("invalid distance_m")
+            if not 0 < distance_value <= 100:
+                rejection_reasons.append("distance_m out of range")
+    
+    angle_degrees = row["angle_degrees"].strip()
+    if angle_degrees == "":
+        rejection_reasons.append("missing angle_degrees")
+    else:
+        try:
+            angle_value = float(angle_degrees)
+        except ValueError:
+            rejection_reasons.append("invalid angle_degrees")
+        else:
+            if not math.isfinite(angle_value):
+                rejection_reasons.append("invalid angle_degrees")
+            elif not 0 < angle_value < 90:
+                rejection_reasons.append("angle_degrees out of range")
 
 
 
