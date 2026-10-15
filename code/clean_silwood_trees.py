@@ -50,7 +50,7 @@ def load_records(path: Path = INPUT_PATH) -> list[dict[str, str]]:
 
 def validate_record(
     row: dict[str, str],
-    source_row: int, #current row no.
+    source_row: int, #current row number, 1st is header
     accepted_ids: set[str], #already been validated, after run function and run through conditions
 ) -> tuple[dict[str, str] | None, list[str]]:
     """Return a cleaned record or its ordered rejection reasons."""
@@ -139,47 +139,42 @@ def validate_record(
     }
     return clean_values, rejection_reasons
 
+
+
+
+
 def process_records(
     rows: Iterable[dict[str, str]],
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     """Separate accepted records from rejected-row reports."""
 
     clean_records = [] #good rows in clean_values
-    issues = [] #bad rows in rejection_reasons
+    issues: list[dict[str, str]] = [] #bad rows in rejection_reasons
     accepted_ids = set() #record_id for clean_records
     source_row = 1
 
     for row in rows:
         source_row = source_row + 1 #start after header
 
+        clean_values, rejection_reasons = validate_record(row, source_row, accepted_ids)
+
+        if rejection_reasons:
+            issues.append({
+                "source_row": source_row, 
+                "record_id": row["record_id"],
+                "reasons": ";".join(rejection_reasons)})
+
+        else:
+            clean_records.append(clean_values) #add cleaned values to new clean_records
+            accepted_ids.append(clean_values["record_id"]) #record_id for clean_values 
+
+    clean_records.sort("record_id") and issues.sort(source_row)
+
+    return clean_records, issues
 
 
 
-
-    else:
-        clean_records.append(clean_values) #add clean values to new clean_records
-        accepted_ids.append(clean_values["record_id"]) #record_id for clean_values 
-
-
-
-
-
-#create issues
-
-#separate the rows
-
-
-
-
-
-   
-    
-    
-    #raise NotImplementedError("Complete the record-processing workflow")
-
-#acceoted id record_id of clean values
-
-
+    #sort clean_records by record_id, sort issues by source row 
 
 
 
