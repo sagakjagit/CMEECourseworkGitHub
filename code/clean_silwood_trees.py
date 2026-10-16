@@ -139,15 +139,10 @@ def validate_record(
     }
     return clean_values, rejection_reasons
 
-
-
-
-
 def process_records(
     rows: Iterable[dict[str, str]],
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     """Separate accepted records from rejected-row reports."""
-
     clean_records = [] #good rows in clean_values
     issues: list[dict[str, str]] = [] #bad rows in rejection_reasons
     accepted_ids = set() #record_id for clean_records
@@ -162,35 +157,32 @@ def process_records(
             issues.append({
                 "source_row": source_row, 
                 "record_id": row["record_id"],
-                "reasons": ";".join(rejection_reasons)})
+                "reasons": "; ".join(rejection_reasons)}) #reasons separated by ;
 
         else:
             clean_records.append(clean_values) #add cleaned values to new clean_records
-            accepted_ids.append(clean_values["record_id"]) #record_id for clean_values 
+            accepted_ids.add(clean_values["record_id"]) #record_id for clean_values 
 
-    clean_records.sort("record_id") and issues.sort(source_row)
+    clean_records.sort(key=lambda x: x["record_id"])
+    issues.sort(key=lambda x: x["source_row"])
 
     return clean_records, issues
 
 
-
-    #sort clean_records by record_id, sort issues by source row 
-
-
-
-
-
-
-
 def summarise_oaks(clean_records: Iterable[dict[str, str]]) -> list[dict[str, str]]:
     """Count accepted oak records by species."""
-    #raise NotImplementedError("Complete the oak summary")
+    oak_counts: list[dict[str, str]] = []
+    counts = {}
 
+    for record in clean_records:
+        if record["genus"] == "Quercus":
+            species = record["species"]
+            counts[species] = counts.get(species, 0) + 1
 
+    for species in sorted(counts):
+        oak_counts.append({"species": species, "count": counts[species]})
 
-
-
-
+    return oak_counts
 
 def write_csv(
     path: Path,
