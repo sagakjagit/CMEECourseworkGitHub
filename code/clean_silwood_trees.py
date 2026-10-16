@@ -50,8 +50,8 @@ def load_records(path: Path = INPUT_PATH) -> list[dict[str, str]]:
 
 def validate_record(
     row: dict[str, str],
-    source_row: int, #current row number, 1st is header
-    accepted_ids: set[str], #already been validated, after run function and run through conditions
+    source_row: int, 
+    accepted_ids: set[str], 
 ) -> tuple[dict[str, str] | None, list[str]]:
     """Return a cleaned record or its ordered rejection reasons."""
     rejection_reasons:list[str] = []
@@ -143,13 +143,13 @@ def process_records(
     rows: Iterable[dict[str, str]],
 ) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
     """Separate accepted records from rejected-row reports."""
-    clean_records = [] #good rows in clean_values
-    issues: list[dict[str, str]] = [] #bad rows in rejection_reasons
-    accepted_ids = set() #record_id for clean_records
+    clean_records = [] 
+    issues: list[dict[str, str]] = [] 
+    accepted_ids = set() 
     source_row = 1
 
     for row in rows:
-        source_row = source_row + 1 #start after header
+        source_row = source_row + 1 
 
         clean_values, rejection_reasons = validate_record(row, source_row, accepted_ids)
 
@@ -157,11 +157,11 @@ def process_records(
             issues.append({
                 "source_row": source_row, 
                 "record_id": row["record_id"],
-                "reasons": "; ".join(rejection_reasons)}) #reasons separated by ;
+                "reasons": "; ".join(rejection_reasons)})
 
         else:
-            clean_records.append(clean_values) #add cleaned values to new clean_records
-            accepted_ids.add(clean_values["record_id"]) #record_id for clean_values 
+            clean_records.append(clean_values) 
+            accepted_ids.add(clean_values["record_id"]) 
 
     clean_records.sort(key=lambda x: x["record_id"])
     issues.sort(key=lambda x: x["source_row"])
@@ -202,7 +202,7 @@ def main() -> None:
     clean_records, issues = process_records(load_records())
     oak_counts = summarise_oaks(clean_records)
 
-    #this is the 3 csv for assessment
+    #CSV outputs
 
     write_csv(
         RESULTS_DIR / "silwood_trees_clean.csv",
