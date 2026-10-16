@@ -47,6 +47,24 @@ invalid_location_test["location"] = "Home"
 record, reasons = validate_record(invalid_location_test, 2, set())
 assert reasons == ["invalid location"]
 
+#Testing genera
+
+missing_genus_test = valid_row_test.copy()
+missing_genus_test["genus"] = ""
+record, reasons = validate_record(missing_genus_test, 2, set())
+assert reasons == ["missing genus"]
+
+invalid_genus_test = valid_row_test.copy()
+invalid_genus_test["genus"] = "Homo"
+record, reasons = validate_record(invalid_genus_test, 2, set())
+assert reasons == ["invalid genus"]
+
+#Testing species
+
+missing_species_test = valid_row_test.copy()
+missing_species_test["species"] = ""
+record, reasons = validate_record(missing_species_test, 2, set())
+assert reasons == ["invalid species"]
 
 #Testing angles
 
