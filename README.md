@@ -3,12 +3,15 @@
 Coursework for Computing Bootcamp (UNIX, shell scripting, Git, Python).
 
 ## Project structure
+```
 CMEECourseWork/
-├── code/       # Scripts and answers
-├── data/       # Supplied input files
-├── results/    # Generated outputs (not committed)
-├── sandbox/    # Disposable tests (not committed)
-└── README.md   # Project documentation
+├── Feedback
+├── README.md
+├── code
+├── data
+├── sandbox
+└── scratch.tmp
+```
 
 ## Usage and Requirements
 - Run scripts from project root (CMEECourseWork/)
