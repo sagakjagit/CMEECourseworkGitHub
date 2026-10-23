@@ -1,6 +1,6 @@
 # CMEE Coursework
 
-Coursework for Computing Bootcamp (UNIX, shell scripting, Git, Python).
+Coursework for Computing Bootcamp (UNIX, shell scripting, Git, Python, R).
 
 ## Project structure
 ```
@@ -51,45 +51,45 @@ Pseudocode:
 Pseudocode:
 - Run from project root with Rscript code/TreeHeight.R
 - INPUT:
-- data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
+    - data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
 - PROCESSING:
-- Load data/trees.csv.
-- CHecked required columns and valid ranges (0 < Distance.m <= 100, 0 < Angle.degrees < 90).
-- Defined TreeHeight function to calculate tree height in metres by Distance.m and Angle.degrees.
-- Add height_m to original data and save output.
+    - Load data/trees.csv.
+    - CHecked required columns and valid ranges (0 < Distance.m <= 100, 0 < Angle.degrees < 90).
+    - Defined TreeHeight function to calculate tree height in metres by Distance.m and Angle.degrees.
+    - Add height_m to original data and save output.
 - OUTPUT:
-- (1) results/TreeHts.csv - 4 columns including height_m.
+    - (1) results/TreeHts.csv - 4 columns including height_m.
 
 ## Assignment 3: Generalise Tree Heights
 Pseudocode:
 - Run from project root with Rscript code/get_TreeHeight.R
 - INPUT:
-- data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
+    -  data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
 - PROCESSING:
-- Accept only 1 readable CSV file path through commandArgs trailingOnly = TRUE and included errors for no or extra arguments. 
-- Appended height_m to original columns of trees.csv.
-- Generate output filename from input basename and save in results/.
-- Used browser() to inspect and verify height calculation.
-OUTPUT:
-- (1) results/<input-basename-without-.csv>_treeheights_python.csv.
+    - Accept only 1 readable CSV file path through commandArgs trailingOnly = TRUE and included errors for no or extra arguments. 
+    - Appended height_m to original columns of trees.csv.
+    - Generate output filename from input basename and save in results/.
+    - Used browser() to inspect and verify height calculation.
+- OUTPUT:
+    - (1) results/<input-basename-without-.csv>_treeheights_python.csv.
 
 ## Assignment 3: Pound Hill Cultivation & Species Richness
 Pseucode:
-- Run from project root with Rscript code/pound_hill_analysis.R
+    - Run from project root with Rscript code/pound_hill_analysis.R
 - INPUT:
-- data/pound_hill_data.csv - Cultivation, Block, Plot, Quadrat, Species and Count.
-- data/pound_hill_meta_data.csv - supplied metadata.
-PROCESSING:
-- Load input data and required packages. 
-- Transposed raw Pound Hill data and replaced blank values with zero. 
-- Reshaped data from wide to long format using melt().
-- Converted identifires to factors and species counts to integers. 
-- Checked counts are finite and non-negative.
-- Calculated species richness per quadrat, then mean richness per plot, and the same for abundance of species. 
-- Compared species richness and abundance per plor across three cultivation treatments.
+    - data/pound_hill_data.csv - Cultivation, Block, Plot, Quadrat, Species and Count.
+    - data/pound_hill_meta_data.csv - supplied metadata.
+- PROCESSING:
+    - Load input data and required packages. 
+    - Transposed raw Pound Hill data and replaced blank values with zero. 
+    - Reshaped data from wide to long format using melt().
+    - Converted identifires to factors and species counts to integers. 
+    - Checked counts are finite and non-negative.
+    - Calculated species richness per quadrat, then mean richness per plot, and the same for abundance of species. 
+    - Compared species richness and abundance per plor across three cultivation treatments.
 - OUTPUT:
-- (1) results/pound_hill_plot_richness.pdf - table of Cultivation, Block, Plot and MeanRichness.
-- (2) results/pound_hill_plot_richness.csv - plot mean species richness by cultivation treatment. 
+    - (1) results/pound_hill_plot_richness.pdf - table of Cultivation, Block, Plot and MeanRichness.
+    - (2) results/pound_hill_plot_richness.csv - plot mean species richness by cultivation treatment. 
 
 ## AI use
 - Tool: Claude - explaining commands (`>&2`, 'key=lamda', '.isdigit()', 'math.isfinite()', 'for .. in ...', 'sub', 'paste', 'any' vs 'all'), interpreting error messages, help with shell quoting, test suggestions, syntaxing (elif, else, if, not), understanding (list/tuple/dictionaries), process functions. 
