@@ -18,7 +18,8 @@ trees <- read.csv("data/trees.csv")
 print(names(trees))
 print(head(trees))
 
-#Check if column names match required columns, numeric & finite & within boundary (Distance.m, Angle.degrees)
+#Check if column names match required columns, numeric & finite & within boundary for
+# Distance.m and Angle.degrees
 required_columns <- c("Species", "Distance.m", "Angle.degrees")
 if(!all(required_columns %in% names(trees))) {
     stop("Missing required columns")
@@ -47,7 +48,8 @@ TreeHeight <- function(Angle.degrees, Distance.m) {
     return (height_m)
 }
 
-#Create a new column Tree.Height.m in trees using TreeHeight function, save values in new column
+#Create a new column Tree.Height.m in trees using TreeHeight function, save values 
+# in new column
 trees$Tree.Height.m <- TreeHeight(trees$Angle.degrees, trees$Distance.m)
 
 #Output TreeHts.csv in results
