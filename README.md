@@ -37,16 +37,20 @@ code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA 
 - Calculate ratio of A and T to G and C.
 ## Shell Scripts:
 code/tabtocsv.sh converts tab-delimited files into comma-delimited files.
+
 INPUT:
 - code/tabtocsv.sh
 - data/tab-example.tsv
+
 OUTPUT:
 - results/$(basename "$1").csv
 
 code/csvtospace.sh converts comma-delimited files into space-delimited files.
+
 INPUT:
 - code/csvtospace.sh
 - results/tab-example.tsv.csv
+
 OUTPUT:
 - results/$(basename "$1").txt
 
