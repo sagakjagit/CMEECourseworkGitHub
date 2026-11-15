@@ -21,13 +21,21 @@ if [[ ! -r "$1" ]]; then
     exit 3
 fi
 
-output_file="../results/$(basename "$1").csv"
-mkdir -p ../results
+if ! mkdir -p results; then
+    printf 'Error: could not create results directory.\n' >&2
+    exit 4
+fi
+
+output_file="results/$(basename "$1").csv"
 
 echo "Creating a comma delimited version of $1 ..."
 
-cat "$1" | tr "\t" "," > "$output_file"
+if cat "$1" | tr "\t" "," > "$output_file"; then
+    echo "Done!"
 
-echo "Done!"
+else printf 'Error: tab to csv conversion failed.\n' >&2
+    rm -f "$output_file"
+    exit 5
+fi
 
-exit 0 
+exit 0
