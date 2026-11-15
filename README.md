@@ -1,6 +1,6 @@
 # CMEE Coursework
 
-Coursework for Computing Bootcamp (UNIX, shell scripting, Git, Python, R).
+Coursework for Computing Bootcamp (UNIX, shell scripting, Python, R).
 
 ## Project structure
 ```
@@ -14,19 +14,44 @@ CMEECourseWork/
 ```
 
 ## Usage and Requirements
-- Run scripts from project root (CMEECourseWork/)
-- Bash - standard UNIX tools.
-- Python - standard python3 tools.
-- R - dplyr, ggplot2, tidyr packages.
+All scripts should be run from the root directory of the repository (CMEECourseWork/).
+The following software and tools are required:
+- Bash and UNIX unitilies: for shell scripts, using commands grep, tail, tr, wc and bc.
+- Python3: for Python scripts. 
+- R: for R scripts, with dplyr, ggplot2, tidyr packages.
 
 ## Data
-- '/fasta/': supplied sequence files.
-- '/temperatures/': supplied comma-delimited files.
-- '/tab-example.tsv': small tab-delimited test file I created.
-- '/silwood_trees_raw.csv': supplied Silwood tree survey.
+Input data are stored in data/ directory:
+- 'fasta/': supplied FASTA sequence files.
+- 'temperatures/': supplied temperature datasets.
+- 'tab-example.tsv': small tab-delimited test file for conversion excercise.
+- 'silwood_trees_raw.csv': supplied raw Silwood tree survey data.
+
+## Assignment 1: UNIX and Shell Scripting
+## UNIX Excercise:
+code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
+- Count Fasta files.
+- Display sequence data only.
+- Calculate sequence length. 
+- Count occurences of ATGC.
+- Calculate ratio of A and T to G and C.
+## Shell Scripts:
+code/tabtocsv.sh converts tab-delimited files into comma-delimited files.
+- INPUT:
+- code/tabtocsv.sh
+- data/tab-example.tsv
+- OUTPUT:
+- results/$(basename "$1").csv
+code/csvtospace.sh converts comma-delimited files into space-delimited files.
+- INPUT:
+- code/csvtospace.sh
+- results/tab-example.tsv.csv
+- OUTPUT:
+- results/$(basename "$1").txt
+## Revisions after formative feedback:
+Updated both scripts to run from repository root, and check directory creation and conversion success before printing completion. 
 
 ## Assignment 2: Silwood Tree Survey
-Pseudocode:
 - INPUT: 
 - 'data/silwood_trees_raw.csv': observations containing record IDs, locations, genera, species, distances and angles. 
 - ASSUMPTIONS:
@@ -48,7 +73,6 @@ Pseudocode:
     - (3) "oak_species_counts.csv" - Accepted oak records and species count. 
 
 ## Assignment 3: Calculate Tree Heights
-Pseudocode:
 - Run from project root with Rscript code/TreeHeight.R
 - INPUT:
     - data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
@@ -61,7 +85,6 @@ Pseudocode:
     - (1) results/TreeHts.csv - 4 columns including height_m.
 
 ## Assignment 3: Generalise Tree Heights
-Pseudocode:
 - Run from project root with Rscript code/get_TreeHeight.R
 - INPUT:
     -  data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
@@ -74,8 +97,7 @@ Pseudocode:
     - (1) results/<input-basename-without-.csv>_treeheights_python.csv.
 
 ## Assignment 3: Pound Hill Cultivation & Species Richness
-Pseucode:
-    - Run from project root with Rscript code/pound_hill_analysis.R
+ - Run from project root with Rscript code/pound_hill_analysis.R
 - INPUT:
     - data/pound_hill_data.csv - Cultivation, Block, Plot, Quadrat, Species and Count.
     - data/pound_hill_meta_data.csv - supplied metadata.
