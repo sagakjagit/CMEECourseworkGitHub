@@ -72,6 +72,14 @@ The following software and tools are required:
     - Run: python3 code/loops.py
     - Check: Run the script and verify that the loops produce the expected output.
 
+- (9) cfexcercises1.py
+    - Contains: 6 functions demonstrating square roots, finding maximum values, sorting numbers and calculating factorials using loops and recursion.
+    - Software: Python 3, ipython
+    - Run: %run code/cfexercises1.py
+    - Inputs: Numerical arguments.
+    - Outputs: Returned numerical values, and sorted lists. 
+    - Check: Run functions individually and compare results against expected values.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
