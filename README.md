@@ -32,7 +32,11 @@ The following software and tools are required:
     - Software: Bash
     - Run: bash code/MyExampleScript.sh
     - Check: Verify that the script prints "Hello" followed by the current login name
-    
+- (3) boilerplate.sh
+    - Contains: Basic Bash script structure, comments, terminal output and exit status.
+    - Software: Bash
+    - Run: bash code/boilerplate.sh
+    - Check: Verify that the message prints correctly and the script exits with status 0.
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
