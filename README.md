@@ -44,6 +44,13 @@ The following software and tools are required:
     - Run: bash code/CheckLabel.sh oak
     - Check: Test with 'oak', 'birch', no arguments and two arguments. Expected exit statuses: 0, 1, 2 and 2 respectively.   
 
+- (5) CountLines.sh
+    - Contains: Counts the number of lines in a specified file using wc -l.
+    - Software: Bash
+    - Run: bash code/CountLines.sh data/test.txt
+    - Check: Run using a test text file and compare the reported line count with the file's newline count.
+
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:

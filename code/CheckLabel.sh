@@ -1,10 +1,9 @@
 #!/bin/bash
-#!/bin/bash
 # Author: Saga Kjällgren
 # Script: CheckLabel.sh
 # Desc: Demonstrates conditional statements and command-line argument validation.
 # Arguments: One species label (oak or pine).
-# Date: November 2026
+# Date: October 2026
 
 if [[ $# -ne 1 ]]; then
     printf 'Usage: %s oak|pine\n' "$0" >&2
