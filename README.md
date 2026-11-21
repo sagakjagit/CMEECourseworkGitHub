@@ -58,6 +58,13 @@ The following software and tools are required:
     - Output: 1 merged text file, containing both inputs in order.
     - Check: Verify output contains both file contents in correct order. Rerun to make sure it does not duplicate. 
 
+- (7) tiff2_png.sh
+    - Contains: for loop to convert TIFF images into PNG format.
+    - Software: Bash and ImageMagick (magick function)
+    - Run: bash code/tiff2_png.sh 
+    Inputs: TIFF images (.tif) in the current directory.
+    - Outputs: PNG images (.png) saved in the current directory.
+    Check: Run on copied test images and verify that corresponding PNG files are created. 
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
