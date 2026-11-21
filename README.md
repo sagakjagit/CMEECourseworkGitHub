@@ -26,6 +26,12 @@ The following software and tools are required:
     - Software: Bash
     - Run: bash code/variables.sh
     - Check: Provide two arguments to test command-line inputs.
+
+- (2) MyExampleScript.sh
+    - Contains: Demonstrates variable assignment and accessing environment variables ($USER).
+    - Software: Bash
+    - Run: bash code/MyExampleScript.sh
+    - Check: Verify that the script prints "Hello" followed by the current login name
     
 
 ## Assignment 1: UNIX and Shell Scripting
