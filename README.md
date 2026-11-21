@@ -80,6 +80,15 @@ The following software and tools are required:
     - Outputs: Returned numerical values, and sorted lists. 
     - Check: Run functions individually and compare results against expected values.
 
+- (10) cfexercises2.py
+    - Contains: Demonstrates for and while loops, conditional statements (if/elif) and breaks.
+    - Software: Python 3
+    - Run: python3 code/cfexercises2.py
+    - Inputs: Numerical arguments.
+    - Outputs: Prints 'hello' messages to the terminal.
+    - Check: Run the script and compare the number of printed messages from each function with predicted results.
+
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
