@@ -62,9 +62,15 @@ The following software and tools are required:
     - Contains: for loop to convert TIFF images into PNG format.
     - Software: Bash and ImageMagick (magick function)
     - Run: bash code/tiff2_png.sh 
-    Inputs: TIFF images (.tif) in the current directory.
+    - Inputs: TIFF images (.tif) in the current directory.
     - Outputs: PNG images (.png) saved in the current directory.
-    Check: Run on copied test images and verify that corresponding PNG files are created. 
+    - Check: Run on copied test images and verify that corresponding PNG files are created. 
+
+- (8) loops.py
+    - Contains: Python for and while loops, iterating through lists and calculating sums.
+    - Software: Python 3
+    - Run: python3 code/loops.py
+    - Check: Run the script and verify that the loops produce the expected output.
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
