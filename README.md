@@ -38,6 +38,12 @@ The following software and tools are required:
     - Run: bash code/boilerplate.sh
     - Check: Verify that the message prints correctly and the script exits with status 0.
 
+- (4) CheckLabel.sh
+    - Contains: Demonstrates if statements, conditional operators, argument validation and error.
+    - Software: Bash
+    - Run: bash code/CheckLabel.sh oak
+    - Check: Test with 'oak', 'birch', no arguments and two arguments. Expected exit statuses: 0, 1, 2 and 2 respectively.   
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
