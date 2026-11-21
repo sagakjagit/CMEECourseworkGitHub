@@ -20,12 +20,13 @@ The following software and tools are required:
 - Python3: for Python scripts. 
 - R: for R scripts, with dplyr, ggplot2, tidyr packages.
 
-## Data
-Input data are stored in data/ directory:
-- 'fasta/': supplied FASTA sequence files.
-- 'temperatures/': supplied temperature datasets.
-- 'tab-example.tsv': small tab-delimited test file for conversion excercise.
-- 'silwood_trees_raw.csv': supplied raw Silwood tree survey data.
+## In-class Scripts: code/
+- (1) variables.sh
+    - Contains: Demonstrates command-line arguments, variables, user input and basic arithmetic.
+    - Software: Bash
+    - Run: bash code/variables.sh
+    - Check: Provide two arguments to test command-line inputs.
+    
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
@@ -36,7 +37,7 @@ code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA 
 - Count occurences of ATGC.
 - Calculate ratio of A and T to G and C.
 ## Shell Scripts:
-code/tabtocsv.sh converts tab-delimited files into comma-delimited files.
+(1) code/tabtocsv.sh converts tab-delimited files into comma-delimited files.
 
 INPUT:
 - code/tabtocsv.sh
@@ -45,7 +46,7 @@ INPUT:
 OUTPUT:
 - results/$(basename "$1").csv
 
-code/csvtospace.sh converts comma-delimited files into space-delimited files.
+(2) code/csvtospace.sh converts comma-delimited files into space-delimited files.
 
 INPUT:
 - code/csvtospace.sh
