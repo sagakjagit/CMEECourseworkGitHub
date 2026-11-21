@@ -50,6 +50,14 @@ The following software and tools are required:
     - Run: bash code/CountLines.sh data/test.txt
     - Check: Run using a test text file and compare the reported line count with the file's newline count.
 
+- (6) ConcatenateTwoFiles.sh
+    - Contains: Concatenates two input files into a single output file using cat.
+    - Software: Bash
+    - Run: bash code/ConcatenateTwoFiles.sh
+    - Input: 2 text files.
+    - Output: 1 merged text file, containing both inputs in order.
+    - Check: Verify output contains both file contents in correct order. Rerun to make sure it does not duplicate. 
+
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
