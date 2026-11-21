@@ -88,6 +88,13 @@ The following software and tools are required:
     - Outputs: Prints 'hello' messages to the terminal.
     - Check: Run the script and compare the number of printed messages from each function with predicted results.
 
+- (11) MyExampleScript.py
+    - Contains: Demonstrates defining and calling a Python function and printing its returned value.
+    - Software: Python 3
+    - Run: python3 code/MyExampleScript.py
+    - Inputs: Integer 2 passed to the square() function.
+    - Outputs: Prints The square of 2 is 4.
+    - Check: Run the script and verify the output.
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
