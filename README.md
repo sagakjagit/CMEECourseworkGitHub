@@ -117,6 +117,15 @@ The following software and tools are required:
     - Outputs: Prints the script name, number of arguments and supplied arguments.
     - Check: Run with oak 12 and verify that two arguments are displayed: ['oak', '12'].
 
+- (15) control_flow.py
+    - Contains: Defines functions demonstrating conditionals, loops and control flow. Includes doctest examples for even_or_odd().
+    - Software: Python 3
+    - Run: python3 code/control_flow.py
+    - Test: python3 -m doctest -v code/control_flow.py
+    - Inputs: Integer arguments passed to the functions.
+    - Outputs: Function return values and doctest results printed in the terminal.
+    - Check: Run doctests and verify that all three examples pass.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
