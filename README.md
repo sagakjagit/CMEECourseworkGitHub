@@ -108,9 +108,14 @@ The following software and tools are required:
     - Software: Python 3
     - Run: python3 code/using_name.py
     - Outputs: Prints '__main__' when run directly; returns 'using_name' when imported.
-    - Run the script directly, and then import in IPython to compare the values of '__name__'.
+    - Check: Run the script directly, and then import in IPython to compare the values of '__name__'.
 
-
+- (14) sysargv.py
+    - Contains: Demonstrates accessing command-line arguments using sys.argv.
+    - Software: Python 3
+    - Run: python3 code/sysargv.py oak 12
+    - Outputs: Prints the script name, number of arguments and supplied arguments.
+    - Check: Run with oak 12 and verify that two arguments are displayed: ['oak', '12'].
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
