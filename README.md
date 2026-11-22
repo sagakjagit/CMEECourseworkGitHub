@@ -126,6 +126,14 @@ The following software and tools are required:
     - Outputs: Function return values and doctest results printed in the terminal.
     - Check: Run doctests and verify that all three examples pass.
 
+- (16) test_control_flow.py
+    - Contains: Tests count_above() using normal, boundary and empty-input cases.
+    - Software: Python 3
+    - Run: python3 code/test_control_flow.py
+    - Inputs: [8, 12, 10, 15], [9, 10, 11] and [] with a threshold of 10.
+    - Outputs: Returns expected counts of 2, 1 and 0.
+    - Check: Verify all three assertions pass without errors.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
