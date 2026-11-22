@@ -103,6 +103,15 @@ The following software and tools are required:
     - Outputs: Prints This is a boilerplate.
     - Check: Run the script and verify the output. 
 
+- (13) using_name.py
+    - Contains: Shows how '__name__' differs when a Python file is run directly or imported.
+    - Software: Python 3
+    - Run: python3 code/using_name.py
+    - Outputs: Prints '__main__' when run directly; returns 'using_name' when imported.
+    - Run the script directly, and then import in IPython to compare the values of '__name__'.
+
+
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
