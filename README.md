@@ -96,6 +96,13 @@ The following software and tools are required:
     - Outputs: Prints The square of 2 is 4.
     - Check: Run the script and verify the output.
 
+- (12) boilerplate.py
+    - Contains: Demonstrates a basic Python program structure using a main function.
+    - Software: Python 3
+    - Run: python3 code/boilerplate.py
+    - Outputs: Prints This is a boilerplate.
+    - Check: Run the script and verify the output. 
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
