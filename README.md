@@ -208,7 +208,15 @@ The following software and tools are required:
     - Inputs: Initial population (N0), growth rate (r) and number of generations with defaults of 1, 1 and 10.
     - Outputs: An exponential growth plot and debugging session.
     - Check: Confirm that the exponential growth function produces an increasing population vector and that the plot displays exponential growth.
-    
+
+- (27) observations_practice.R
+    - Contains: Reads and summarises observationd data, checks required columns and values, missing counts, duplicate rows, missing counts. Calculates known totals by site.
+    - Software: R
+    - Run: Rscript code/observations_practice.R
+    - Inputs: data/bootcamp_observations.csv, data/bootcamp_observations_boundary.csv, data/bootcamp_observations_invalid.csv
+    - Outputs: Summary of known totals and missing counts by site, plot in results/observations_summary.png.
+    - Check: Run with the boundary dataset to check that site C has NA and 2 missing counts, and site D has a total of 0 and 0 missing counts. Run with the invalid dataset to check that invalid counts give an error.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
@@ -302,8 +310,9 @@ Updated both scripts to run from repository root, and check directory creation a
     - (2) results/pound_hill_plot_richness.csv - plot mean species richness by cultivation treatment. 
 
 ## AI use
-- Tool: Claude - explaining commands (`>&2`, 'key=lamda', '.isdigit()', 'math.isfinite()', 'for .. in ...', 'sub', 'paste', 'any' vs 'all'), interpreting error messages, help with shell quoting, test suggestions, syntaxing (elif, else, if, not), understanding (list/tuple/dictionaries), process functions. 
+- Tool: Claude - explaining commands (`>&2`, 'key=lamda', '.isdigit()', 'math.isfinite()', 'for .. in ...', 'sub', 'paste', 'any' vs 'all', 'floor'), interpreting error messages, help with shell quoting, test suggestions, syntaxing (elif, else, if, not), understanding (list/tuple/dictionaries), process functions. 
 - Resources: Stack Overflow - understand commands (such as `tr -d`, `bc -l`, `\n`, 'utf-8').
+
 
 ## Authors
 - Saga Kjallgren slk26@ic.ac.uk
