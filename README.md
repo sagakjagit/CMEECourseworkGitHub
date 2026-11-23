@@ -161,7 +161,17 @@ The following software and tools are required:
     - Inputs: Numeric arguments 1, 2 and character arguments "riki", "Tiki".
     - Outputs: Prints argument and its type. 
     - Check: Confirm the output identifies the first pair as numeric and the second pair as character.
-    
+
+- (21) control_flow.R
+    - Contains: R control flow using if, for and while loops.
+    - Software: R
+    - Run: Rscript code/control_flow.R
+    - Inputs: Logical value TRUE, random number, numeric sequence 1–10 and species/character vectors.
+    - Outputs: Prints conditional messages, squared numbers, species names and vector elements. 
+    - Check: Confirm loops prints expected values. 
+
+
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
