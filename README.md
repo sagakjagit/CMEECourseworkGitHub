@@ -153,6 +153,14 @@ The following software and tools are required:
     - Inputs: data/trees.csv
     - Outputs: results/MyData.csv
     - Check: Inspect results/MyData.csv after running.
+
+- (20) boilerplate.r
+    - Contains: Defining and calling an R funciton.
+    - Software: R
+    - Run: Rscript code/boilerplate.R
+    - Inputs: Numeric arguments 1, 2 and character arguments "riki", "Tiki".
+    - Outputs: Prints argument and its type. 
+    - Check: Confirm the output identifies the first pair as numeric and the second pair as character.
     
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
