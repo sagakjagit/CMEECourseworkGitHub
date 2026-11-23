@@ -146,6 +146,14 @@ The following software and tools are required:
     - Outputs: Raises ZeroDivisionError when the divisor reaches zero.
     - Check: Run the script and confirm expected ZeroDevisionError occurs. 
 
+- (19) basic_io.R
+    - Contains: A simple R script illustrating file input and output.
+    - Software: R
+    - Run: Rscript code/basic_io.R
+    - Inputs: data/trees.csv
+    - Outputs: results/MyData.csv
+    - Check: Inspect results/MyData.csv after running.
+    
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
