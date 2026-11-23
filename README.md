@@ -201,6 +201,14 @@ The following software and tools are required:
     - Inputs: Randomly generated population of 50 values, with seed set to 1345.
     - Outputs: A list of 15 sampling results, including successful means and caught errors and a histogram.
 
+- (26) browse.R
+    - Contains: Demonstrates debugging an exponential growth function using browser() breakpoints.
+    - Software: R
+    - Run: Rscript code/browse.R
+    - Inputs: Initial population (N0), growth rate (r) and number of generations with defaults of 1, 1 and 10.
+    - Outputs: An exponential growth plot and debugging session.
+    - Check: Confirm that the exponential growth function produces an increasing population vector and that the plot displays exponential growth.
+    
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
