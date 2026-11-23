@@ -225,6 +225,15 @@ The following software and tools are required:
     - Outputs: results/pound_hill_long.csv
     - Check: Confirm the output has been reshaped and output saved to results/.
 
+- (29) data_wrang_tidy.R
+    - Contains: Loads and inspects the Pound Hill dataset, replaces blank values with zeros, and reshapes the data from wide to long format using tidyr::pivot_longer().
+    - Software: R with tidyverse package.
+    - Run: Rscript code/data_wrang_tidy.R
+    - Inputs: data/pound_hill_data.csv, data/pound_hill_meta_data.csv
+    - Outputs: results/pound_hill_long_tidy.csv
+    - Check: Confirm the output has been reshaped and output saved to results/.
+
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
