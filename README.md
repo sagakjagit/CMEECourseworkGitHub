@@ -194,6 +194,13 @@ The following software and tools are required:
     - Outputs: Prints odd numbers from 1 to 9.
     - Check: Confirm the output is 1, 3, 5, 7, 9.
 
+- (25) try.R
+    - Contains: Demonstrates catching errors using try() with lapply() and for loops
+    - Software: R
+    - Run: Rscript code/try.R
+    - Inputs: Randomly generated population of 50 values, with seed set to 1345.
+    - Outputs: A list of 15 sampling results, including successful means and caught errors and a histogram.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
