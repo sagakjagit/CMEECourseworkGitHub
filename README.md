@@ -134,8 +134,17 @@ The following software and tools are required:
     - Outputs: Returns expected counts of 2, 1 and 0.
     - Check: Verify all three assertions pass without errors.
 
-(17) observations_practice.py, test_observations_practice.py
+- (17) observations_practice.py, test_observations_practice.py
     - Input: data/
+    ••••••••••
+
+- (18) debugme.py
+    - Contains: Demonstrates debugging a Python function using pdb to investigate a ZeroDivisionError.
+    - Software: Python 3
+    - Run: python3 code/debugme.py
+    - Inputs: Integer '20'.
+    - Outputs: Raises ZeroDivisionError when the divisor reaches zero.
+    - Check: Run the script and confirm expected ZeroDevisionError occurs. 
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
