@@ -186,6 +186,14 @@ The following software and tools are required:
     - Outputs: Prints values 0–9 before exiting the loop.
     - Check: Confirm the output stops at 9 and doesn't print 10.
 
+- (24) next.R
+    - Contains: Demonstrates using next to skip even numbers in a for loop.
+    - Software: R
+    - Run: Rscript code/next.R
+    - Inputs: Numeric sequence 1–10.
+    - Outputs: Prints odd numbers from 1 to 9.
+    - Check: Confirm the output is 1, 3, 5, 7, 9.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
