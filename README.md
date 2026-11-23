@@ -170,7 +170,13 @@ The following software and tools are required:
     - Outputs: Prints conditional messages, squared numbers, species names and vector elements. 
     - Check: Confirm loops prints expected values. 
 
-
+- (22) r_conditionals.R
+    - Contains: Conditional functions, default arguments, rounding, checking powers and prime numbers. 
+    - Software: R
+    - Run: Rscript code/r_conditionals.R
+    - Inputs: Example integers, tree heights and decimal-place arguments.
+    - Outputs: Returns messages identifying even/odd numbers, powers of two and prime numbers and rounded tree heights.
+    - Check: Confirm is.even(6) returns "6 is even!", report_height(12.345) returns 12.35, is.power2(4) identifies a power of two, and is.prime(3) identifies a prime.
 
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
