@@ -134,6 +134,9 @@ The following software and tools are required:
     - Outputs: Returns expected counts of 2, 1 and 0.
     - Check: Verify all three assertions pass without errors.
 
+(17) observations_practice.py, test_observations_practice.py
+    - Input: data/
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
