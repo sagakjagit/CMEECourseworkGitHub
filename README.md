@@ -217,6 +217,14 @@ The following software and tools are required:
     - Outputs: Summary of known totals and missing counts by site, plot in results/observations_summary.png.
     - Check: Run with the boundary dataset to check that site C has NA and 2 missing counts, and site D has a total of 0 and 0 missing counts. Run with the invalid dataset to check that invalid counts give an error.
 
+- (28) data_wrang.R
+    - Contains: Reshapes Pound Hill dataset from wide to long format. 
+    - Software: R with reshape2 package.
+    - Run: Rscript code/data_wrang.R
+    - Inputs: data/pound_hill_data.csv, data/pound_hill_meta_data.csv
+    - Outputs: results/pound_hill_long.csv
+    - Check: Confirm the output has been reshaped and output saved to results/.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
