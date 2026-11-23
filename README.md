@@ -178,6 +178,14 @@ The following software and tools are required:
     - Outputs: Returns messages identifying even/odd numbers, powers of two and prime numbers and rounded tree heights.
     - Check: Confirm is.even(6) returns "6 is even!", report_height(12.345) returns 12.35, is.power2(4) identifies a power of two, and is.prime(3) identifies a prime.
 
+- (23) break.R
+    - Contains: Demonstrates using break to exit a while loop when a condition is met.
+    - Software: R
+    - Run: Rscript code/break.R
+    - Inputs: Initial value i = 0; stopping condition i == 10.
+    - Outputs: Prints values 0–9 before exiting the loop.
+    - Check: Confirm the output stops at 9 and doesn't print 10.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
