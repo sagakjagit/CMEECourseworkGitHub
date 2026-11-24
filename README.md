@@ -18,7 +18,7 @@ All scripts should be run from the root directory of the repository (CMEECourseW
 The following software and tools are required:
 - Bash and UNIX unitilies: for shell scripts, using commands grep, tail, tr, wc and bc.
 - Python3: for Python scripts. 
-- R: for R scripts, with dplyr, ggplot2, tidyr packages.
+- R: for R scripts, with dplyr, ggplot2, tidyr packages, reshape
 
 ## In-class Scripts: code/
 - (1) variables.sh
@@ -74,8 +74,8 @@ The following software and tools are required:
 
 - (9) cfexcercises1.py
     - Contains: 6 functions demonstrating square roots, finding maximum values, sorting numbers and calculating factorials using loops and recursion.
-    - Software: Python 3, ipython
-    - Run: %run code/cfexercises1.py
+    - Software: Python 3,
+    - Run: python3 code/cfexercises1.py
     - Inputs: Numerical arguments.
     - Outputs: Returned numerical values, and sorted lists. 
     - Check: Run functions individually and compare results against expected values.
@@ -134,9 +134,13 @@ The following software and tools are required:
     - Outputs: Returns expected counts of 2, 1 and 0.
     - Check: Verify all three assertions pass without errors.
 
-- (17) observations_practice.py, test_observations_practice.py
-    - Input: data/
-    ••••••••••
+- (17) (1) observations_practice.py & (2) test_observations_practice.py
+    - Contains: (1) Loads, validates and summarises ecological observation data. Handles missing counts, rejects invalid values and removes duplicate records. (2) Then tests the functions in observations_practice.py, including normal cases, missing values, zero counts, invalid data and duplicate records.
+    - Software: Python 3
+    - Run: (1) python3 code/observations_practice.py (2) python3 code/test_observations_practice.py
+    - Input: data/bootcamp_observations.csv, data/bootcamp_observations_boundary.csv, data/bootcamp_observations_invalid.csv
+    - Output: Printed sample observations when running observations_practice.py, site summaries returned by summarise_site() (known totals and missing counts) and test results from test_observations_practice.py (assertions pass silently if successful). No output files are generated. 
+    - Check: Run the script and confirm it finishes without errors, indicating all tests passed.
 
 - (18) debugme.py
     - Contains: Demonstrates debugging a Python function using pdb to investigate a ZeroDivisionError.
@@ -233,33 +237,31 @@ The following software and tools are required:
     - Outputs: results/pound_hill_long_tidy.csv
     - Check: Confirm the output has been reshaped and output saved to results/.
 
-
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
-code/unixPrac1.txt contains five exercises using UNIX commands to analyse FASTA sequence data:
-- Count Fasta files.
-- Display sequence data only.
-- Calculate sequence length. 
-- Count occurences of ATGC.
-- Calculate ratio of A and T to G and C.
+- (1) unixPrac1.txt
+    -  Contains: Five excercises using UNIX commands to analyse FASTA sequence data.
+    - Software: UNIX including commands grep, wc, tr and bc. 
+    - Run: bash code/unixPrac1.txt
+    - Input: All FASTA files in data/fasta/.
+    - Output: (1) Number of FASTA files, (2) sequence data only, (3) length of sequence, (4) count occurences of A,T,G and C and (5) ratio of A or T to C or G. 
+
+
 ## Shell Scripts:
-(1) code/tabtocsv.sh converts tab-delimited files into comma-delimited files.
+- (2) code/tabtocsv.sh 
+    - Contains: Converts tab-delimited files into comma-delimited files.
+    - Software: Bash
+    - Run: bash code/tabtocsv.sh data/tab-example.tsv
+    - Input: data/tab-example.tsv
+    - Output: results/$(basename "$1").csv
+    - Check: Confirm the output file is created and contains comma-delimited data.
 
-INPUT:
-- code/tabtocsv.sh
-- data/tab-example.tsv
-
-OUTPUT:
-- results/$(basename "$1").csv
-
-(2) code/csvtospace.sh converts comma-delimited files into space-delimited files.
-
-INPUT:
-- code/csvtospace.sh
-- results/tab-example.tsv.csv
-
-OUTPUT:
-- results/$(basename "$1").txt
+- (3) code/csvtospace.sh 
+    - Contains: Converts comma-delimited files into space-delimited files.
+    - Software: Bash
+    - Input: bash code/csvtospace.sh results/tab-example.tsv.csv
+    - Output: results/$(basename "$1").txt
+    - Check: Confirm the output file is created and contains space-delimited data
 
 ## Revisions after formative feedback:
 Updated both scripts to run from repository root, and check directory creation and conversion success before printing completion. 

@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# Author: Saga Kjällgren
+# Script: observations_practice.py
+# Desc: Loads, validates and summarises observation data.
+# Date: October 2026
+
 import csv
 
 def load_observations(path):

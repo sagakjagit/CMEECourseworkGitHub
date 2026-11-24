@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# Author: Saga Kjällgren
+# Script: test_observations_practice.py
+# Desc: Tests observation loading, validation and summarising functions.
+# Date: November 2026
+
 from observations_practice import load_observations, parse_count, summarise_site
 
 # Normal case: ordinary count text becomes an integer.
