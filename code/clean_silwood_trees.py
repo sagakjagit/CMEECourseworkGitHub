@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# Author: Saga Kjällgren
+# Script: clean_silwood_trees.py
+# Desc: Validates and cleans the synthetic Silwood tree survey.
+# Date: November 2026
+
 """Validate and clean the synthetic Silwood tree survey."""
 
 from __future__ import annotations
@@ -24,7 +29,6 @@ INPUT_FIELDS = [
 ISSUE_FIELDS = ["source_row", "record_id", "reasons"]
 OAK_COUNT_FIELDS = ["species", "count"]
 
-#ADD CONSTANTS HERE TOP OF CODE
 CANONICAL_LOCATIONS = ["Silwood Bottom", "Nash's Field", "Manor House", "Reactor Wood"]
 CANONICAL_GENERA = ["Quercus", "Acer", "Betula", "Fagus", "Fraxinus"]
 CANONICAL_SPECIES = ["robur", "petraea", "pseudoplatanus", "pendula", "sylvatica", "excelsior"]
@@ -104,7 +108,7 @@ def validate_record(
     else:
         try:
             distance_value = float(distance_m)
-        except:
+        except ValueError:
             rejection_reasons.append("invalid distance_m") 
         else:
             if not math.isfinite(distance_value):
@@ -141,10 +145,10 @@ def validate_record(
 
 def process_records(
     rows: Iterable[dict[str, str]],
-) -> tuple[list[dict[str, str]], list[dict[str, str]]]:
+) -> tuple[list[dict[str, str]], list[dict[str, str | int]]]:
     """Separate accepted records from rejected-row reports."""
     clean_records = [] 
-    issues: list[dict[str, str]] = [] 
+    issues: list[dict[str, str | int]] = []
     accepted_ids = set() 
     source_row = 1
 
@@ -169,9 +173,9 @@ def process_records(
     return clean_records, issues
 
 
-def summarise_oaks(clean_records: Iterable[dict[str, str]]) -> list[dict[str, str]]:
+def summarise_oaks(clean_records: Iterable[dict[str, str]]) -> list[dict[str, str | int]]:
     """Count accepted oak records by species."""
-    oak_counts: list[dict[str, str]] = []
+    oak_counts: list[dict[str, str | int]] = []
     counts = {}
 
     for record in clean_records:
@@ -187,7 +191,7 @@ def summarise_oaks(clean_records: Iterable[dict[str, str]]) -> list[dict[str, st
 def write_csv(
     path: Path,
     fieldnames: list[str],
-    rows: Iterable[dict[str, str]],
+    rows: Iterable[dict[str, str | int]],
 ) -> None:
     """Replace a CSV file with the supplied rows."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -201,9 +205,6 @@ def main() -> None:
     """Run the complete validation workflow."""
     clean_records, issues = process_records(load_records())
     oak_counts = summarise_oaks(clean_records)
-
-    #CSV outputs
-
     write_csv(
         RESULTS_DIR / "silwood_trees_clean.csv",
         INPUT_FIELDS,

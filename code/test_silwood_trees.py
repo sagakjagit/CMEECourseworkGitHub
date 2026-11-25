@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+# Author: Saga Kjällgren
+# Script: test_silwood_trees.py
+# Desc: Tests the validation, cleaning and oak summarising functions.
+# Date: November 2026
+
 #Test validate_record functions:
 from clean_silwood_trees import validate_record, process_records, summarise_oaks
 
@@ -115,57 +121,47 @@ assert reasons == []
 print("All tests passed")
 
 
-#Test process_record functions:
+# Test process_records and summarise_oaks functions:
+process_and_summarise_test = [
+    {
+        "record_id": "ST001", 
+        "location": "manor house", 
+        "genus": "Quercus",
+        "species": "robur", 
+        "distance_m": "15", 
+        "angle_degrees": "53"
+    },
+    {
+        "record_id": "st001",
+        "location": "Manor Houses",
+        "genus": "Quercus",
+        "species": "robur",
+        "distance_m": "50",
+        "angle_degrees": "10"
+    }, 
+    {
+        "record_id": "st001",
+        "location": "silwood bottom",
+        "genus": "Quercus",
+        "species": "petraea",
+        "distance_m": "100",
+        "angle_degrees": "89"
+    }]
 
+clean_records, issues = process_records(process_and_summarise_test)
 
-process_records_test = [{"record_id": "ST001", 
-                         "location": "manor house", 
-                         "genus": "Quercus",
-                         "species": "robur", 
-                         "distance_m": "15", 
-                         "angle_degrees": "53"},
-                         {"record_id": "st001",
-                          "location": "Manor Houses",
-                          "genus": "Quercus",
-                          "species": "robur",
-                          "distance_m": "50",
-                          "angle_degrees": "10"}, 
-                          {"record_id": "st001",
-                           "location": "silwood bottom",
-                           "genus": "Quercus",
-                           "species": "petraea",
-                           "distance_m": "100",
-                           "angle_degrees": "89"}]
+assert len(clean_records) == 1
+assert clean_records[0]["record_id"] == "ST001"
 
-clean_records, issues = process_records(process_records_test)
-print("Clean records:", clean_records)
-print("Issues:", issues)
+assert len(issues) == 2
+assert issues[0]["record_id"] == "st001"
+assert issues[0]["reasons"] == "invalid record_id; invalid location"
+assert issues[1]["record_id"] == "st001"
+assert issues[1]["reasons"] == "invalid record_id"
     
-#Test summarise_oaks:
-
-summarise_oaks_test = [{"record_id": "ST001", 
-                         "location": "manor house", 
-                         "genus": "Quercus",
-                         "species": "robur", 
-                         "distance_m": "15", 
-                         "angle_degrees": "53"},
-                         {"record_id": "ST002",
-                          "location": "Manor House",
-                          "genus": "Quercus",
-                          "species": "robur",
-                          "distance_m": "50",
-                          "angle_degrees": "10"}, 
-                          {"record_id": "ST003",
-                           "location": "silwood bottom",
-                           "genus": "Quercus",
-                           "species": "petraea",
-                           "distance_m": "50",
-                           "angle_degrees": "32"}]
-
-oak_counts = summarise_oaks(summarise_oaks_test)
-print(oak_counts)
+oak_counts = summarise_oaks(clean_records)
 assert oak_counts == [
-    {"species": "petraea", "count": 1},
-    {"species": "robur", "count": 2}
+    {"species": "robur", "count": 1}
 ]
 
+print("All process and summarise tests passed")
