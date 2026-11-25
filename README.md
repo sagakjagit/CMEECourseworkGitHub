@@ -275,25 +275,25 @@ The following software and tools are required:
 Updated both scripts to run from repository root, and check directory creation and conversion success before printing completion. 
 
 ## Assignment 2: Silwood Tree Survey
-- Input: 
-- 'data/silwood_trees_raw.csv': observations containing record IDs, locations, genera, species, distances and angles. 
-- ASSUMPTIONS:
-    - "record_id": no whitespace, missing, duplicate, or invalid values. In the format 'ST' followed by 3 digits. 
-    - "location": no whitespace, missing or invalid values. Matching a canonical location and its capitalisation. 
-    - "genus" and "species": no whitespace, missing, invalid values. Matching a genus/species combination. 
-    - "distance_m": no whitespace, missing, or invalid values. Must be numerical and finite value that is greater than 0 or less than or equal to 100.
-    - "angle_degrees": no whitespace, missing or invalid values. Must be numerical and finite value that is greater than 0 and less than 90.
-- PROCESSING:
-    - Load the input CSV and check the columns as expected. 
-    - Validate each row through the assumptions above, removing whitespace and standardising capitalisation where needed.
-    - Accept rows with no validation errors, and record their IDs.
-    - Reject rows with validation errors, and record their source row number, record IDs and reasons. 
-    - Sort accepted records by record ID, and rejected records by source row.
-    - Count species for accepted oak records.
-- OUTPUT:
-    - (1) "silwood_trees_clean.csv": Accepted and standardised records .
-    - (2) "silwood_tree_issues.csv": Rejected records by source row and the reasons.
-    - (3) "oak_species_counts.csv" - Accepted oak records and species count. 
+- (1) clean_silwood_trees.py
+    - Contains: Validates and cleans the Silwood tree survey data, separates accepted and rejected records, and summarises accepted oak species.
+    - Software: Python 3
+    - Run: python3 code/clean_silwood_trees.py
+    - Test: python3 code/test_silwood_trees.py
+    - Input: data/silwood_trees_raw.csv, containing record IDs, locations, genera, species, distances and angles. data/silwood_trees_metadata.md, describing the dataset and its variables.
+    - Validation: Checks that:
+        1. Record IDs follow the format ST followed by three digits and are not duplicated.
+        2. Locations match the permitted locations.
+        3. Genus and species are valid permitted combinations.
+        4. Distances are finite numerical values greater than 0 and up to and including 100 metres.
+        5. Angles are finite numerical values greater than 0 and less than 90 degrees.
+    - Processing: Standardises capitalisation, accepts records with no validation errors, and records rejected rows with their source row number, record ID and rejection reasons. Accepted records are sorted by record ID and rejected records by source row.
+    - Outputs: Three CSV files saved in results/:
+        1. silwood_trees_clean.csv – accepted and standardised records.
+        2. silwood_tree_issues.csv – rejected records and their validation reasons.
+        3. oak_species_counts.csv – species counts for accepted oak records.
+
+
 
 ## Assignment 3: Calculate Tree Heights
 - Run from project root with Rscript code/TreeHeight.R
