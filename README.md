@@ -237,6 +237,14 @@ The following software and tools are required:
     - Outputs: results/pound_hill_long_tidy.csv
     - Check: Confirm the output has been reshaped and output saved to results/.
 
+- (30) sql_in_r.R
+    - Contains: Creates and queries a SQLite database in R. Creates a consumer table, imports resource.csv into a resource table, runs SQL queries and checks table contents.
+    - Software: R; DBI and RSQLite packages.
+    - Run: Rscript code/sql_in_r.R
+    - Inputs: data/resource.csv
+    - Outputs: results/sql_in_r.sqlite; SQL query results and database checks printed to terminal.
+    - Check: Confirms that the consumer table contains 3 rows and that the resource table contains the same number of rows as the input CSV.
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 - (1) unixPrac1.txt
@@ -267,7 +275,7 @@ The following software and tools are required:
 Updated both scripts to run from repository root, and check directory creation and conversion success before printing completion. 
 
 ## Assignment 2: Silwood Tree Survey
-- INPUT: 
+- Input: 
 - 'data/silwood_trees_raw.csv': observations containing record IDs, locations, genera, species, distances and angles. 
 - ASSUMPTIONS:
     - "record_id": no whitespace, missing, duplicate, or invalid values. In the format 'ST' followed by 3 digits. 
