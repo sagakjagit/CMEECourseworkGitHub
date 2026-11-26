@@ -9,16 +9,19 @@ CMEECourseWork/
 ├── README.md
 ├── code
 ├── data
+├── results
 ├── sandbox
-└── scratch.tmp
+└── scratch.tmp 
 ```
 
 ## Usage and Requirements
 All scripts should be run from the root directory of the repository (CMEECourseWork/).
 The following software and tools are required:
 - Bash and UNIX unitilies: for shell scripts, using commands grep, tail, tr, wc and bc.
-- Python3: for Python scripts. 
+- Python3: for Python scripts, with standard library modules including csv, math, pathlib and typing.
 - R: for R scripts, with dplyr, ggplot2, tidyr packages, reshape
+- ImageMagick: Required for tiff2_png.sh to convert TIFF images to PNG format using magick.
+
 
 ## In-class Scripts: code/
 - (1) variables.sh
@@ -72,7 +75,7 @@ The following software and tools are required:
     - Run: python3 code/loops.py
     - Check: Run the script and verify that the loops produce the expected output.
 
-- (9) cfexcercises1.py
+- (9) cfexercises1.py
     - Contains: 6 functions demonstrating square roots, finding maximum values, sorting numbers and calculating factorials using loops and recursion.
     - Software: Python 3,
     - Run: python3 code/cfexercises1.py
@@ -158,7 +161,7 @@ The following software and tools are required:
     - Outputs: results/MyData.csv
     - Check: Inspect results/MyData.csv after running.
 
-- (20) boilerplate.r
+- (20) boilerplate.R
     - Contains: Defining and calling an R funciton.
     - Software: R
     - Run: Rscript code/boilerplate.R
@@ -208,10 +211,10 @@ The following software and tools are required:
 - (26) browse.R
     - Contains: Demonstrates debugging an exponential growth function using browser() breakpoints.
     - Software: R
-    - Run: Rscript code/browse.R
+    - Run: Run: source("code/browse.R") in an interactive R session.
     - Inputs: Initial population (N0), growth rate (r) and number of generations with defaults of 1, 1 and 10.
     - Outputs: An exponential growth plot and debugging session.
-    - Check: Confirm that the exponential growth function produces an increasing population vector and that the plot displays exponential growth.
+    - Check: Step through the function using the browser() breakpoint, inspect the variables and verify that the exponential growth function produces an increasing population vector and plot.
 
 - (27) observations_practice.R
     - Contains: Reads and summarises observationd data, checks required columns and values, missing counts, duplicate rows, missing counts. Calculates known totals by site.
@@ -245,12 +248,13 @@ The following software and tools are required:
     - Outputs: results/sql_in_r.sqlite; SQL query results and database checks printed to terminal.
     - Check: Confirms that the consumer table contains 3 rows and that the resource table contains the same number of rows as the input CSV.
 
+
 ## Assignment 1: UNIX and Shell Scripting
 ## UNIX Excercise:
 - (1) unixPrac1.txt
     -  Contains: Five excercises using UNIX commands to analyse FASTA sequence data.
     - Software: UNIX including commands grep, wc, tr and bc. 
-    - Run: bash code/unixPrac1.txt
+    - Run: Execute the five UNIX exercises individually from the repository root using the commands provided in code/unixPrac1.txt
     - Input: All FASTA files in data/fasta/.
     - Output: (1) Number of FASTA files, (2) sequence data only, (3) length of sequence, (4) count occurences of A,T,G and C and (5) ratio of A or T to C or G. 
 
@@ -274,50 +278,91 @@ The following software and tools are required:
 ## Revisions after formative feedback:
 Updated both scripts to run from repository root, and check directory creation and conversion success before printing completion. 
 
+
 ## Assignment 2: Silwood Tree Survey
-- (1) clean_silwood_trees.py
-    - Contains: Validates and cleans the Silwood tree survey data, separates accepted and rejected records, and summarises accepted oak species.
-    - Software: Python 3
-    - Run: python3 code/clean_silwood_trees.py
-    - Test: python3 code/test_silwood_trees.py
-    - Input: data/silwood_trees_raw.csv, containing record IDs, locations, genera, species, distances and angles. data/silwood_trees_metadata.md, describing the dataset and its variables.
-    - Validation: Checks that:
-        1. Record IDs follow the format ST followed by three digits and are not duplicated.
-        2. Locations match the permitted locations.
-        3. Genus and species are valid permitted combinations.
-        4. Distances are finite numerical values greater than 0 and up to and including 100 metres.
-        5. Angles are finite numerical values greater than 0 and less than 90 degrees.
-    - Processing: Standardises capitalisation, accepts records with no validation errors, and records rejected rows with their source row number, record ID and rejection reasons. Accepted records are sorted by record ID and rejected records by source row.
-    - Outputs: Three CSV files saved in results/:
-        1. silwood_trees_clean.csv – accepted and standardised records.
-        2. silwood_tree_issues.csv – rejected records and their validation reasons.
-        3. oak_species_counts.csv – species counts for accepted oak records.
+## clean_silwood_trees.py
+- Contains: Validates and cleans the Silwood tree survey data, separates accepted and rejected records, and summarises accepted oak species.
+- Software: Python 3
+- Run: python3 code/clean_silwood_trees.py
+- Test: python3 code/test_silwood_trees.py
+- Input: data/silwood_trees_raw.csv, containing record IDs, locations, genera, species, distances and angles. data/silwood_trees_metadata.md, describing the dataset and its variables.
+- Validation: Checks that:
+    1. Record IDs follow the format ST followed by three digits and are not duplicated.
+    2. Locations match the permitted locations.
+    3. Genus and species are valid permitted combinations.
+    4. Distances are finite numerical values greater than 0 and up to and including 100 metres.
+    5. Angles are finite numerical values greater than 0 and less than 90 degrees.
+- Processing: Standardises capitalisation, accepts records with no validation errors, and records rejected rows with their source row number, record ID and rejection reasons. Accepted records are sorted by record ID and rejected records by source row.
+- Outputs: Three CSV files saved in results/:
+    1. silwood_trees_clean.csv – accepted and standardised records.
+    2. silwood_tree_issues.csv – rejected records and their validation reasons.
+    3. oak_species_counts.csv – species counts for accepted oak records.
+
+## test_silwood_trees.py
+- Contains: Tests the validation, processing and oak summarising functions in clean_silwood_trees.py.
+- Software: Python 3
+- Run: python3 code/test_silwood_trees.py
+- Inputs: Test records defined within the test script; no external input files required.
+- Checks: Tests valid and invalid records, including record IDs, locations, genus/species combinations, distances and angles. Also checks that process_records() separates accepted and rejected records correctly, and that summarise_oaks() counts only accepted oak records.
+- Output: Prints test progress and confirmation messages to the terminal. Assertions identify failures if any checks do not pass.
+
+## Revisions after formative feedback:
+- Restored the supplied data/silwood_trees_metadata.md file.
+- Updated test_silwood_trees.py with additional assertions to check that valid and invalid records are correctly separated by process_records().
+- Added checks to confirm that rejected records do not contribute to the oak species summary produced by summarise_oaks().
+- Updated the README with instructions for running the cleaning script and tests, descriptions of the validation process, and details of the three output files.
 
 
+
+******************************************
 
 ## Assignment 3: Calculate Tree Heights
-- Run from project root with Rscript code/TreeHeight.R
-- INPUT:
-    - data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
-- PROCESSING:
-    - Load data/trees.csv.
-    - CHecked required columns and valid ranges (0 < Distance.m <= 100, 0 < Angle.degrees < 90).
-    - Defined TreeHeight function to calculate tree height in metres by Distance.m and Angle.degrees.
-    - Add height_m to original data and save output.
-- OUTPUT:
-    - (1) results/TreeHts.csv - 4 columns including height_m.
+## TreeHeight.R
+- Contains: Reads tree measurements from a CSV file, validates the input data and calculates tree heights using trigonometry.
+- Software: R
+- Run: Rscript code/TreeHeight.R
+- Input: data/trees.csv, containing 120 tree records with Species, Distance.m and Angle.degrees columns.
+- Processing: Checks that required columns are present and validates that distances and angles are numeric, finite and within the permitted ranges. Defines the TreeHeight() function, converts angles from degrees to radians and calculates tree heights. Adds the calculated heights as a new height_m column. Creates the results directory if it does not already exist.
+- Output: results/TreeHts.csv, containing the original three columns and the calculated tree heights.
+- Check: Checked the output contains 120 records and four columns. Independently calculated a tree height using the trigonometric formula and compared it with the corresponding output value. Tested invalid measurements and missing columns to check that the script stops with appropriate error messages.
+
+## Revisions after formative feedback:
+- Corrected the filename to code/TreeHeight.R.
+- Added automatic creation of the results/ directory.
+- Checked the function argument order and tree-height calculation.
+- Removed unnecessary printing from the function.
+- Added input validation for missing columns, non-numeric values, non-finite values and measurements outside the permitted ranges.
 
 ## Assignment 3: Generalise Tree Heights
-- Run from project root with Rscript code/get_TreeHeight.R
-- INPUT:
-    -  data/trees.csv - supplied CSV containing 120 rows and 3 columns - Species, Distance.m and Angle.degrees.
-- PROCESSING:
-    - Accept only 1 readable CSV file path through commandArgs trailingOnly = TRUE and included errors for no or extra arguments. 
-    - Appended height_m to original columns of trees.csv.
-    - Generate output filename from input basename and save in results/.
-    - Used browser() to inspect and verify height calculation.
-- OUTPUT:
-    - (1) results/<input-basename-without-.csv>_treeheights_python.csv.
+## get_TreeHeight.R
+- Contains: Reads a CSV file supplied as a command-line argument, validates the input data and calculates tree heights using trigonometry.
+- Software: R
+- Run: Rscript code/get_TreeHeight.R data/trees.csv
+- Input: A CSV file containing Species, Distance.m and Angle.degrees columns.
+- Processing: Checks that exactly one input file is provided and that the file exists and is readable. Checks that required columns are present and validates that distances and angles are numeric, finite and within the permitted ranges. Defines the TreeHeight() function, converts angles from degrees to radians and calculates tree heights. Adds the calculated heights as a new Tree.Height.m column. Creates the results directory if it does not already exist.
+- Output: results/trees_treeheights.csv, containing the original three columns and the calculated tree heights.
+- Check: Test invalid and valid arguments for appropriate error messages, expected columns and calculated heights. 
+
+## Revisions after formative feedback:
+- Generalised the script to accept a CSV file path as a command-line argument rather than using a fixed input file.
+- Added checks for the number of arguments and file readability and automatic creation of the results/ directory.
+- Removed unnecessary printing from the function.
+- Added input validation for invalid data.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Assignment 3: Pound Hill Cultivation & Species Richness
  - Run from project root with Rscript code/pound_hill_analysis.R
@@ -335,6 +380,10 @@ Updated both scripts to run from repository root, and check directory creation a
 - OUTPUT:
     - (1) results/pound_hill_plot_richness.pdf - table of Cultivation, Block, Plot and MeanRichness.
     - (2) results/pound_hill_plot_richness.csv - plot mean species richness by cultivation treatment. 
+
+
+
+**************************
 
 ## AI use
 - Tool: Claude - explaining commands (`>&2`, 'key=lamda', '.isdigit()', 'math.isfinite()', 'for .. in ...', 'sub', 'paste', 'any' vs 'all', 'floor'), interpreting error messages, help with shell quoting, test suggestions, syntaxing (elif, else, if, not), understanding (list/tuple/dictionaries), process functions. 
