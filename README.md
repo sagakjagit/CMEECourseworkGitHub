@@ -349,41 +349,33 @@ Updated both scripts to run from repository root, and check directory creation a
 - Removed unnecessary printing from the function.
 - Added input validation for invalid data.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## Assignment 3: Pound Hill Cultivation & Species Richness
- - Run from project root with Rscript code/pound_hill_analysis.R
-- INPUT:
-    - data/pound_hill_data.csv - Cultivation, Block, Plot, Quadrat, Species and Count.
-    - data/pound_hill_meta_data.csv - supplied metadata.
-- PROCESSING:
-    - Load input data and required packages. 
-    - Transposed raw Pound Hill data and replaced blank values with zero. 
-    - Reshaped data from wide to long format using melt().
-    - Converted identifires to factors and species counts to integers. 
-    - Checked counts are finite and non-negative.
-    - Calculated species richness per quadrat, then mean richness per plot, and the same for abundance of species. 
-    - Compared species richness and abundance per plor across three cultivation treatments.
-- OUTPUT:
-    - (1) results/pound_hill_plot_richness.pdf - table of Cultivation, Block, Plot and MeanRichness.
-    - (2) results/pound_hill_plot_richness.csv - plot mean species richness by cultivation treatment. 
 
+### pound_hill_analysis.R
 
+- Contains: Analyses plant species richness and abundance across three cultivation treatments at Pound Hill.
+- Software: R, with dplyr, ggplot2 and reshape2.
+- Run: Rscript code/pound_hill_analysis.R
+- Inputs: data/pound_hill_data.csv – cultivation, block, plot, quadrat and species count data. data/pound_hill_meta_data.csv` – supplementary metadata.
+- Processing:
+    - Loads, transposes and inspects the raw data.
+    - Replaces blank cells with zero observations.
+    - Reshapes the data from wide to long format using `melt()`.
+    - Converts plot identifiers to factors and validates species counts.
+    - Calculates species richness per quadrat and mean richness per plot.
+    - Calculates total abundance per quadrat and mean abundance per plot.
+    - Compares richness and abundance across the three cultivation treatments.
+- Outputs:
+    - results/pound_hill_plot_richness.csv – mean species richness per plot.
+    - results/pound_hill_plot_richness.pdf – boxplot of species richness across treatments.
+    - results/pound_hill_richness_abundance.pdf – side-by-side boxplots comparing richness and abundance.
 
-**************************
+### Revisions after Formative Feedback:
+- Corrected the negative-count validation so that negative values are detected properly.
+- Added checks for missing, non-finite, negative and non-whole-number counts before converting them to integers.
+- Ensured the `results/` directory is created before saving output files.
+- Saved the richness and abundance comparison as a PDF.
+- Improved comments and interpretation to distinguish species richness from abundance and avoid unsupported causal conclusions.
 
 ## AI use
 - Tool: Claude - explaining commands (`>&2`, 'key=lamda', '.isdigit()', 'math.isfinite()', 'for .. in ...', 'sub', 'paste', 'any' vs 'all', 'floor'), interpreting error messages, help with shell quoting, test suggestions, syntaxing (elif, else, if, not), understanding (list/tuple/dictionaries), process functions. 
