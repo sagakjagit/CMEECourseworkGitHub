@@ -17,9 +17,9 @@ CMEECourseWork/
 ## Usage and Requirements
 All scripts should be run from the root directory of the repository (CMEECourseWork/).
 The following software and tools are required:
-- Bash and UNIX utilities: for shell scripts, using commands grep, tail, tr, wc and bc.
-- Python3: for Python scripts, with standard library modules including csv, math, pathlib and typing.
-- R: for R scripts, with the packages dplyr, ggplot2, tidyr, reshape2, tidyverse, DBI and RSQLite.
+- Bash and UNIX utilities: for shell scripts, using commands `grep`, `tail`, `tr`, `wc` and `bc`.
+- Python3: for Python scripts, with standard library modules including `csv`, `math`, `pathlib`.
+- R: for R scripts, with the packages `dplyr`, `ggplot2`, `tidyr`, `reshape2`, `tidyverse`, `DBI` and `RSQLite`.
 - ImageMagick: Required for tiff2_png.sh to convert TIFF images to PNG format using magick.
 
 
@@ -386,9 +386,8 @@ Updated both scripts to run from repository root, and check directory creation a
 - Improved comments and interpretation to distinguish species richness from abundance and avoid unsupported causal conclusions.
 
 ## AI use
-- Tool: Claude - explaining commands (`>&2`, 'key=lamda', '.isdigit()', 'math.isfinite()', 'for .. in ...', 'sub', 'paste', 'any' vs 'all', 'floor'), interpreting error messages, help with shell quoting, test suggestions, syntaxing (elif, else, if, not), understanding (list/tuple/dictionaries), process functions. 
-- Resources: Stack Overflow - understand commands (such as `tr -d`, `bc -l`, `\n`, 'utf-8').
-
+- Tool: Claude - explaining commands (`>&2`, `key=lamda`, `.isdigit()`, `math.isfinite()`, `for .. in ...`, `sub`, `paste`, `any` vs `all`, `floor`), interpreting error messages, help with shell quoting, test suggestions, syntaxing (elif, else, if, not), understanding (list/tuple/dictionaries), process functions, verification. 
+- Resources: Stack Overflow - understand commands (such as `tr -d`, `bc -l`, `\n`, `utf-8`).
 
 ## Authors
 - Saga Kjallgren slk26@ic.ac.uk
