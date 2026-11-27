@@ -19,7 +19,7 @@ All scripts should be run from the root directory of the repository (CMEECourseW
 The following software and tools are required:
 - Bash and UNIX unitilies: for shell scripts, using commands grep, tail, tr, wc and bc.
 - Python3: for Python scripts, with standard library modules including csv, math, pathlib and typing.
-- R: for R scripts, with dplyr, ggplot2, tidyr packages, reshape
+- R: for R scripts, including dplyr, ggplot2, tidyr, reshape.
 - ImageMagick: Required for tiff2_png.sh to convert TIFF images to PNG format using magick.
 
 
@@ -250,7 +250,7 @@ The following software and tools are required:
 
 
 ## Assignment 1: UNIX and Shell Scripting
-## UNIX Excercise:
+### UNIX Excercise:
 - (1) unixPrac1.txt
     -  Contains: Five excercises using UNIX commands to analyse FASTA sequence data.
     - Software: UNIX including commands grep, wc, tr and bc. 
@@ -259,7 +259,7 @@ The following software and tools are required:
     - Output: (1) Number of FASTA files, (2) sequence data only, (3) length of sequence, (4) count occurences of A,T,G and C and (5) ratio of A or T to C or G. 
 
 
-## Shell Scripts:
+### Shell Scripts:
 - (2) code/tabtocsv.sh 
     - Contains: Converts tab-delimited files into comma-delimited files.
     - Software: Bash
@@ -275,12 +275,12 @@ The following software and tools are required:
     - Output: results/$(basename "$1").txt
     - Check: Confirm the output file is created and contains space-delimited data
 
-## Revisions after formative feedback:
+### Revisions after formative feedback:
 Updated both scripts to run from repository root, and check directory creation and conversion success before printing completion. 
 
 
 ## Assignment 2: Silwood Tree Survey
-## clean_silwood_trees.py
+### clean_silwood_trees.py
 - Contains: Validates and cleans the Silwood tree survey data, separates accepted and rejected records, and summarises accepted oak species.
 - Software: Python 3
 - Run: python3 code/clean_silwood_trees.py
@@ -298,7 +298,7 @@ Updated both scripts to run from repository root, and check directory creation a
     2. silwood_tree_issues.csv – rejected records and their validation reasons.
     3. oak_species_counts.csv – species counts for accepted oak records.
 
-## test_silwood_trees.py
+### test_silwood_trees.py
 - Contains: Tests the validation, processing and oak summarising functions in clean_silwood_trees.py.
 - Software: Python 3
 - Run: python3 code/test_silwood_trees.py
@@ -306,18 +306,15 @@ Updated both scripts to run from repository root, and check directory creation a
 - Checks: Tests valid and invalid records, including record IDs, locations, genus/species combinations, distances and angles. Also checks that process_records() separates accepted and rejected records correctly, and that summarise_oaks() counts only accepted oak records.
 - Output: Prints test progress and confirmation messages to the terminal. Assertions identify failures if any checks do not pass.
 
-## Revisions after formative feedback:
+### Revisions after formative feedback:
 - Restored the supplied data/silwood_trees_metadata.md file.
 - Updated test_silwood_trees.py with additional assertions to check that valid and invalid records are correctly separated by process_records().
 - Added checks to confirm that rejected records do not contribute to the oak species summary produced by summarise_oaks().
 - Updated the README with instructions for running the cleaning script and tests, descriptions of the validation process, and details of the three output files.
 
 
-
-******************************************
-
 ## Assignment 3: Calculate Tree Heights
-## TreeHeight.R
+### TreeHeight.R
 - Contains: Reads tree measurements from a CSV file, validates the input data and calculates tree heights using trigonometry.
 - Software: R
 - Run: Rscript code/TreeHeight.R
@@ -326,7 +323,7 @@ Updated both scripts to run from repository root, and check directory creation a
 - Output: results/TreeHts.csv, containing the original three columns and the calculated tree heights.
 - Check: Checked the output contains 120 records and four columns. Independently calculated a tree height using the trigonometric formula and compared it with the corresponding output value. Tested invalid measurements and missing columns to check that the script stops with appropriate error messages.
 
-## Revisions after formative feedback:
+### Revisions after formative feedback:
 - Corrected the filename to code/TreeHeight.R.
 - Added automatic creation of the results/ directory.
 - Checked the function argument order and tree-height calculation.
@@ -334,7 +331,7 @@ Updated both scripts to run from repository root, and check directory creation a
 - Added input validation for missing columns, non-numeric values, non-finite values and measurements outside the permitted ranges.
 
 ## Assignment 3: Generalise Tree Heights
-## get_TreeHeight.R
+### get_TreeHeight.R
 - Contains: Reads a CSV file supplied as a command-line argument, validates the input data and calculates tree heights using trigonometry.
 - Software: R
 - Run: Rscript code/get_TreeHeight.R data/trees.csv
@@ -343,11 +340,21 @@ Updated both scripts to run from repository root, and check directory creation a
 - Output: results/trees_treeheights.csv, containing the original three columns and the calculated tree heights.
 - Check: Test invalid and valid arguments for appropriate error messages, expected columns and calculated heights. 
 
-## Revisions after formative feedback:
+### run_get_TreeHeight.sh
+- Contains: Runs the generalised tree-height R script using the supplied CSV input
+- Software: Bash, R
+- Run: bash code/run_get_TreeHeight.sh
+- Input: data/trees.csv
+- Processing: Calls get_TreeHeight.R with data/trees.csv as the command-line argument. Stops if the R command fails.
+- Output: results/trees_treeheights.csv, generated by get_TreeHeight.R.
+- Check: Ran the shell script from the repository root and checked that the expected output was generated. Confirmed that the shell script stops if the R command fails.
+
+### Revisions after formative feedback:
 - Generalised the script to accept a CSV file path as a command-line argument rather than using a fixed input file.
 - Added checks for the number of arguments and file readability and automatic creation of the results/ directory.
 - Removed unnecessary printing from the function.
 - Added input validation for invalid data.
+- Created a shell wrapper to run the generalised tree-height script from the repository root.
 
 ## Assignment 3: Pound Hill Cultivation & Species Richness
 
@@ -369,6 +376,7 @@ Updated both scripts to run from repository root, and check directory creation a
     - results/pound_hill_plot_richness.csv – mean species richness per plot.
     - results/pound_hill_plot_richness.pdf – boxplot of species richness across treatments.
     - results/pound_hill_richness_abundance.pdf – side-by-side boxplots comparing richness and abundance.
+
 
 ### Revisions after Formative Feedback:
 - Corrected the negative-count validation so that negative values are detected properly.
