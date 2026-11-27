@@ -2,3 +2,15 @@
 *.tmp
 .DS_Store
 sandbox/
+
+# R temporary files
+.RData
+.Rhistory
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# Generated results
+results/*
+!results/.gitkeep

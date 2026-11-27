@@ -17,9 +17,9 @@ CMEECourseWork/
 ## Usage and Requirements
 All scripts should be run from the root directory of the repository (CMEECourseWork/).
 The following software and tools are required:
-- Bash and UNIX unitilies: for shell scripts, using commands grep, tail, tr, wc and bc.
+- Bash and UNIX utilities: for shell scripts, using commands grep, tail, tr, wc and bc.
 - Python3: for Python scripts, with standard library modules including csv, math, pathlib and typing.
-- R: for R scripts, including dplyr, ggplot2, tidyr, reshape.
+- R: for R scripts, with the packages dplyr, ggplot2, tidyr, reshape2, tidyverse, DBI and RSQLite.
 - ImageMagick: Required for tiff2_png.sh to convert TIFF images to PNG format using magick.
 
 
